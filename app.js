@@ -6,6 +6,9 @@ const api = require('./routes/apiRoutes')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+app.set('view engine', 'ejs')
+
+app.get('/', (req, res) => res.redirect('/api'))
 app.use('/api', api)
 
 app.listen(PORT, () =>

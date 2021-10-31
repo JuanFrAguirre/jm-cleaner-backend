@@ -12,6 +12,8 @@ router.get('/opticas', stores.opticas)
 
 router.get('/brand/:brand', stores.storesByBrand)
 
+router.get('/state', (req, res) => res.render('zone'))
+
 router.get('/state/:state', stores.storesByState)
 
 module.exports = router
