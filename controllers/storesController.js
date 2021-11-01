@@ -1,49 +1,84 @@
 const fs = require('fs')
 
 // actions
-let actions = {
-  getData: () => {
-    return JSON.parse(fs.readFileSync('./data/locales.json', 'utf-8'))
-  },
-
-  getStore: id => {
-    let stores = actions.getData()
-    return stores.find(x => x.id == id)
-  },
-
-  getStoresByType: type => {
-    let stores = actions.getData()
-    return stores.filter(x => x.type === type)
-  },
-
-  getStoresByBrand: brand => {
-    let stores = actions.getData()
-    return stores.filter(x => x.brand === brand)
-  },
-
-  getStoresByState: state => {
-    let stores = actions.getData()
-    return stores.filter(x => x.state === state)
-  },
+const getHighestId = (array) => {
+  return Math.max(...array.map((x) => x.id))
+}
+const getData = () => {
+  return JSON.parse(fs.readFileSync('./data/localesMock.json', 'utf-8'))
+}
+const getProvincias = () => {
+  return JSON.parse(fs.readFileSync('./data/provincias.json', 'utf-8'))
+}
+const getBrands = () => {
+  return JSON.parse(fs.readFileSync('./data/brands.json', 'utf-8'))
+}
+const getStore = (id) => {
+  let stores = getData()
+  return stores.find((x) => x.id == id)
+}
+const getStoresByType = (type) => {
+  let stores = getData()
+  return stores.filter((x) => x.type === type)
+}
+const getStoresByBrand = (brand) => {
+  let stores = getData()
+  return stores.filter((x) => x.brand === brand)
+}
+const getStoresByState = (state) => {
+  let stores = getData()
+  return stores.filter((x) => x.state === state)
+}
+const writeData = (data) => {
+  fs.writeFileSync('./data/localesMock.json', JSON.stringify(data))
+}
+const create = (store) => {
+  let stores = getData()
+  let id = getHighestId(stores)
+  store.id = id + 1
+  stores = [...stores, store]
+  writeData(stores)
+  return store
+}
+const deleteStore = (id) => {
+  let stores = getData()
+  let store = getStore(id)
+  let newStores = stores.filter((x) => x.id != id)
+  writeData(newStores)
+  return store
 }
 
+// controller
 const stores = {
-  stores: (req, res) => res.send(actions.getData()),
-  storeById: (req, res) => {
-    let id = req.params.id
-    let store = actions.getStore(id)
-    console.log('returning', store)
-    res.send(actions.getStore(id))
+  stores: (req, res) => {
+    res.send(getData())
   },
-  farmacias: (req, res) => res.send(actions.getStoresByType('farmacias')),
-  opticas: (req, res) => res.send(actions.getStoresByType('opticas')),
+  storeById: (req, res) => {
+    res.send(getStore(req.params.id))
+  },
+  farmacias: (req, res) => {
+    res.send(getStoresByType('farmacias'))
+  },
+  opticas: (req, res) => {
+    res.send(getStoresByType('opticas'))
+  },
   storesByBrand: (req, res) => {
-    let brand = req.params.brand
-    res.send(actions.getStoresByBrand(brand))
+    res.send(getStoresByBrand(req.params.brand))
+  },
+  state: (req, res) => {
+    res.render('zone')
   },
   storesByState: (req, res) => {
-    let state = req.params.state
-    res.send(actions.getStoresByState(state))
+    res.send(getStoresByState(req.params.state))
+  },
+  createStore: (req, res) => {
+    res.send(create(req.body))
+  },
+  createForm: (req, res) => {
+    res.render('newStore.ejs', { provincias: getProvincias(), brands: getBrands() })
+  },
+  deleteStore: (req, res) => {
+    res.send(deleteStore(req.params.id))
   },
 }
 

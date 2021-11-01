@@ -1,0 +1,34 @@
+[
+  {
+    "desc": "Córdoba",
+    "value": "cordoba"
+  },
+  {
+    "desc": "Corrientes",
+    "value": "corrientes"
+  },
+  {
+    "desc": "Santa Fe",
+    "value": "santaFe"
+  },
+  {
+    "desc": "Entre Ríos",
+    "value": "entreRios"
+  },
+  {
+    "desc": "Misiones",
+    "value": "misiones"
+  },
+  {
+    "desc": "Buenos Aires",
+    "value": "buenosAires"
+  },
+  {
+    "desc": "Catamarca",
+    "value": "catamarca"
+  },
+  {
+    "desc": "Santiago del Estero",
+    "value": "santiagoDelEstero"
+  }
+]

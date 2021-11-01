@@ -2,18 +2,18 @@ const express = require('express')
 const router = express.Router()
 const stores = require('../controllers/storesController')
 
-router.get('/', stores.stores)
+router
+  .get('/', stores.stores)
+  .get('/store/new', stores.createForm)
+  .get('/store/:id', stores.storeById)
+  .get('/farmacias', stores.farmacias)
+  .get('/opticas', stores.opticas)
+  .get('/brand/:brand', stores.storesByBrand)
+  .get('/state', stores.state)
+  .get('/state/:state', stores.storesByState)
 
-router.get('/store/:id', stores.storeById)
+router.post('/store/new', stores.createStore)
 
-router.get('/farmacias', stores.farmacias)
-
-router.get('/opticas', stores.opticas)
-
-router.get('/brand/:brand', stores.storesByBrand)
-
-router.get('/state', (req, res) => res.render('zone'))
-
-router.get('/state/:state', stores.storesByState)
+router.delete('/store/:id', stores.deleteStore)
 
 module.exports = router

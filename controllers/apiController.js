@@ -1,17 +1,9 @@
 const fs = require('fs')
-const path = require('path')
+
+const getBrands = () => JSON.parse(fs.readFileSync('./data/brands.json', 'utf-8'))
 
 const api = {
-  base: (req, res) =>
-    res.render('index', {
-      brands: [
-        { name: 'Farmacias Lider', brand: 'farmaciasLider' },
-        { name: 'Farmacias Sanchez Antonioli', brand: 'farmaciasSanchezAntonioli' },
-        { name: 'Farmacias Red', brand: 'farmaciasRed' },
-        { name: 'Farmacias General Paz', brand: 'farmaciasGeneralPaz' },
-        { name: 'Farmacias Genericas', brand: 'farmaciasGenericas' },
-      ],
-    }),
+  base: (req, res) => res.render('index', { brands: getBrands() }),
   test: (req, res) => res.send('API test working!'),
 }
 
