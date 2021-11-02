@@ -4,6 +4,10 @@ const fs = require('fs')
 const getHighestId = (array) => {
   return Math.max(...array.map((x) => x.id))
 }
+// TODO: add middleware for length checking
+const getLength = (array) => {
+  return String(array.length)
+}
 const getData = () => {
   return JSON.parse(fs.readFileSync('./data/localesMock.json', 'utf-8'))
 }
@@ -51,7 +55,8 @@ const deleteStore = (id) => {
 // controller
 const stores = {
   stores: (req, res) => {
-    res.send(getData())
+    if (req.query.q) res.send(getLength(getData()))
+    else res.send(getData())
   },
   storeById: (req, res) => {
     res.send(getStore(req.params.id))
