@@ -54,37 +54,18 @@ const deleteStore = (id) => {
 
 // controller
 const stores = {
-  stores: (req, res) => {
-    if (req.query.q) res.send(getLength(getData()))
-    else res.send(getData())
-  },
-  storeById: (req, res) => {
-    res.send(getStore(req.params.id))
-  },
-  farmacias: (req, res) => {
-    res.send(getStoresByType('farmacias'))
-  },
-  opticas: (req, res) => {
-    res.send(getStoresByType('opticas'))
-  },
-  storesByBrand: (req, res) => {
-    res.send(getStoresByBrand(req.params.brand))
-  },
-  state: (req, res) => {
-    res.render('zone')
-  },
-  storesByState: (req, res) => {
-    res.send(getStoresByState(req.params.state))
-  },
-  createStore: (req, res) => {
-    res.send(create(req.body))
-  },
-  createForm: (req, res) => {
-    res.render('newStore.ejs', { provincias: getProvincias(), brands: getBrands() })
-  },
-  deleteStore: (req, res) => {
-    res.send(deleteStore(req.params.id))
-  },
+  stores: (req, res) => res.send(getData()),
+  renderStores: (req, res) => res.render('pages/stores', { stores: getData() }),
+  storeById: (req, res) => res.send(getStore(req.params.id)),
+  renderStoreById: (req, res) => res.render('pages/store', { store: getStore(req.params.id) }),
+  farmacias: (req, res) => res.send(getStoresByType('farmacias')),
+  opticas: (req, res) => res.send(getStoresByType('opticas')),
+  storesByBrand: (req, res) => res.send(getStoresByBrand(req.params.brand)),
+  state: (req, res) => res.render('zone'),
+  storesByState: (req, res) => res.send(getStoresByState(req.params.state)),
+  createStore: (req, res) => res.send(create(req.body)),
+  createForm: (req, res) => res.render('pages/newStoreForm.ejs', { provincias: getProvincias(), brands: getBrands() }),
+  deleteStore: (req, res) => res.send(deleteStore(req.params.id)),
 }
 
 module.exports = stores

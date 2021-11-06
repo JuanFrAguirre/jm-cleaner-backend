@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <main class="index">
+      <h1>JM Cleaner API</h1>
+      <h3>Tiendas</h3>
+      <ul>
+        <li>
+          <a href="/api/stores">Todas las tiendas</a>
+        </li>
+        <li>
+          <a href="/api/stores/farmacias">Todas las farmacias</a>
+        </li>
+        <li>
+          <a href="/api/stores/opticas">Todas las opticas</a>
+        </li>
+      </ul>
+      <h3>Buscar por franquicia</h3>
+      <ul>
+        <% brands.forEach(x => { %>
+        <li>
+          <a href="/api/stores/brand/<%= x.value %> "><%= x.desc %> </a>
+        </li>
+        <% }) %>
+      </ul>
+      <h3>Buscar por region</h3>
+      <p>
+        Para buscar por zona ir a <a href="/api/stores/state/">'.../api/stores/state/'</a> y luego del state colocar la
+        zona
+      </p>
+      <h3>Crear una nueva tienda</h3>
+      <a href="/api/stores/store/new">Ir al formulario</a>
+    </main>
+  </body>
+</html>

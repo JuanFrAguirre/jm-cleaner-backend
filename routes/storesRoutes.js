@@ -4,8 +4,10 @@ const stores = require('../controllers/storesController')
 
 router
   .get('/', stores.stores)
+  .get('/renderStores', stores.renderStores)
   .get('/store/new', stores.createForm)
   .get('/store/:id', stores.storeById)
+  .get('/renderStore/:id', stores.renderStoreById)
   .get('/farmacias', stores.farmacias)
   .get('/opticas', stores.opticas)
   .get('/brand/:brand', stores.storesByBrand)

@@ -1,0 +1,60 @@
+.stores {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
+  padding: 0 3rem;
+
+  @media (min-width: 620px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  box-shadow: 0 0 1rem rgba($black, 0.2);
+  border-radius: 0.5rem;
+
+  &__title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .linkBtn {
+      position: absolute;
+      left: 4rem;
+
+      a {
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &--view {
+    display: flex;
+    justify-content: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,65 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    gap: 1rem;
+  }
+
+  label {
+    font-size: 1.6rem;
+    font-weight: 400;
+
+    small {
+      color: $dark-gray;
+      font-size: 1.1rem;
+    }
+  }
+
+  input,
+  select {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    color: $dark-gray;
+
+    option {
+      color: $black;
+    }
+  }
+
+  input {
+  }
+
+  .optionNone {
+    color: $light-gray;
+  }
+
+  .buttons {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 2rem;
+
+    button {
+      color: $white;
+    }
+
+    .btnEnviar {
+      background: $green;
+    }
+
+    .btnLimpiar {
+      background: $red;
+    }
+  }
+}

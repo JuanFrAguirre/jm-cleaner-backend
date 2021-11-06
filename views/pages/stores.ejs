@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <h1>Tiendas</h1>
+      <div class="stores">
+        <% stores.forEach(store => { %>
+        <div class="store">
+          <%- include('../partials/store', {store}) %>
+          <br />
+          <a href="/api/stores/renderStore/<%= store.id %> ">Ver más</a>
+        </div>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>

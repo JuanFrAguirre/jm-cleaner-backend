@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-inline: 3rem;
+  margin-bottom: 5rem;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2.4rem;
+}
+
+@media (min-width: 600px) {
+  h1 {
+    margin: 3rem 0;
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 900px) {
+  h1 {
+    margin: 4rem 0;
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  margin: 2rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: #111;
+}
+
+ul a:hover {
+  text-decoration: underline;
+}
+
+ul li {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  background: #ccc;
+  font-size: 2rem;
+  color: #111;
+  border-radius: 0.2rem;
+}
+
+.btn:hover {
+  background: #444;
+  color: #eee;
+}
+
+.btn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #ccc;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+}
+
+header nav a {
+  color: #111;
+  font-size: 1.6rem !important;
+  padding: 1.5rem;
+}
+
+header nav a:hover {
+  color: #eee;
+  background: #444;
+}
+
+@media (min-width: 650px) {
+  header nav {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 3rem;
+  }
+  header nav a {
+    font-size: 1.8rem !important;
+    padding: 1.8rem !important;
+    width: 18rem;
+  }
+}
+
+@media (min-width: 900px) {
+  header nav {
+    gap: 4rem;
+  }
+  header nav a {
+    padding: 2.2rem 2rem !important;
+  }
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 5rem;
+}
+
+.form__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form fieldset {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.form label {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.form label small {
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.form input,
+.form select {
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: #444;
+}
+
+.form input option,
+.form select option {
+  color: #111;
+}
+
+.form .optionNone {
+  color: #ccc;
+}
+
+.form .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+}
+
+.form .buttons button {
+  color: #eee;
+}
+
+.form .buttons .btnEnviar {
+  background: #339933;
+}
+
+.form .buttons .btnLimpiar {
+  background: #ad2121;
+}
+
+.index a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.stores {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
+  padding: 0 3rem;
+}
+
+@media (min-width: 620px) {
+  .stores {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .stores {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.store {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem 3rem;
+  -webkit-box-shadow: 0 0 1rem rgba(17, 17, 17, 0.2);
+          box-shadow: 0 0 1rem rgba(17, 17, 17, 0.2);
+  border-radius: 0.5rem;
+}
+
+.store__title {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.store__title .linkBtn {
+  position: absolute;
+  left: 4rem;
+}
+
+.store__title .linkBtn a {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.store__title .linkBtn a:hover {
+  text-decoration: underline;
+}
+
+.store--view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.store a {
+  text-align: center;
+}
+
+.store a:hover {
+  text-decoration: underline;
+}
+
+.store p {
+  margin-bottom: 0.5rem;
+}

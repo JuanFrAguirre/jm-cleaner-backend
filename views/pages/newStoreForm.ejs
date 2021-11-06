@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <h1>JM Cleaner API</h1>
+
+      <div class="form__container">
+        <form class="form" action="/api/stores/store/new" method="post">
+          <fieldset>
+            <label for="name">Nombre del local <small>(required)</small></label>
+            <input autofocus required type="text" name="name" />
+          </fieldset>
+          <fieldset>
+            <label for="address">Direccion <small>(required)</small></label>
+            <input required type="text" name="address" />
+          </fieldset>
+          <fieldset>
+            <label for="phone">Telefono</label>
+            <input type="number" name="phone" />
+          </fieldset>
+          <fieldset>
+            <label for="coordenates">Coordenadas <small>(required)</small></label>
+            <input required type="text" name="coordenates" />
+          </fieldset>
+          <fieldset>
+            <label for="loc">Localidad <small>(required)</small></label>
+            <input required type="text" name="loc" />
+          </fieldset>
+          <fieldset>
+            <label for="type">Tipo de local <small>(required)</small></label>
+            <select required name="type">
+              <option class="optionNone" disabled selected value="">-- Seleccione un tipo de local --</option>
+              <option value="farmacias">Farmacia</option>
+              <option value="opticas">Optica</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label for="state">Provincia <small>(required)</small></label>
+            <select required name="state">
+              <option class="optionNone" disabled selected value="">-- Seleccione una provincia --</option>
+              <% provincias.forEach(x => { %>
+              <option value="<%= x.value %> "><%= x.desc %></option>
+              <% }) %>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label for="brand">Franquicia</label>
+            <select name="brand">
+              <option class="optionNone" value="">--</option>
+              <% brands.forEach(x => { %>
+              <option value="<%= x.value %> "><%= x.desc %></option>
+              <% }) %>
+            </select>
+          </fieldset>
+
+          <div class="buttons">
+            <button class="btn btnEnviar">Enviar</button>
+            <button type="reset" class="btn btnLimpiar">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

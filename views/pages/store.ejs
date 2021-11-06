@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="store__title">
+      <div class="linkBtn">
+        <a href="/api/stores">Volver</a>
+      </div>
+      <h1>Tienda</h1>
+    </div>
+    <div class="store--view">
+      <div class="store"><%- include('../partials/store', {store}) %></div>
+    </div>
+  </body>
+</html>
